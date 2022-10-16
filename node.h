@@ -15,10 +15,11 @@ struct Node {
 
 int node_insert(Node* parent, Node* child);
 Node* node_create(Node* parent, unsigned int child_count, void* data);
-void node_print_tree(Node* node, void (*data_print)(const void*), int level, unsigned int indent);
-void node_print(Node* node, void (*data_print)(const void*));
+void node_print_tree(Node* node, void (*n_print)(const Node*), void (*data_print)(const void*), int level, unsigned int indent);
+void node_print(Node* node, void (*n_print)(const Node*), void (*data_print)(const void*));
 void node_free(Node* node, void (*data_free)(void*));
 int node_set_data(Node* node, void* data);
 int node_remove_data(Node* node, void (*data_free)(void*));
+int node_remove(Node* parent, unsigned int index, void (*data_free)(void*));
 
 #endif
